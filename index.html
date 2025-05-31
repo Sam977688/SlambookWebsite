@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Google Developers Club - N.U. Manila</title>
+<style>
+  :root {
+    --blue: #4285F4;
+    --red: #EA4335;
+    --yellow: #FBBC05;
+    --green: #34A853;
+    --gold: #D4AF37;
+    --background: #f9f9f9;
+    --text-dark: #202124;
+    --text-light: #5f6368;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header {
+    width: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--red), var(--yellow), var(--green));
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header h1 {
+    font-family: 'Product Sans', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 2.4rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    user-select: none;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 0;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+  }
+  nav a:hover,
+  nav a.active {
+    background-color: var(--gold);
+    color: var(--text-dark);
+    box-shadow: 0 0 10px var(--gold);
+  }
+  main {
+    max-width: 900px;
+    width: 90%;
+    margin: 2rem auto 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .section h2 {
+    color: var(--blue);
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 6px;
+    margin-bottom: 1rem;
+    font-family: 'Segoe UI Black', sans-serif;
+    user-select: none;
+  }
+  .section p,
+  .section ul {
+    font-size: 1.1rem;
+    color: var(--text-light);
+  }
+  .section blockquote {
+    font-style: italic;
+    color: var(--red);
+    margin: 1rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid var(--red);
+  }
+  .gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .gallery-container img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    filter: brightness(0.95);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    cursor: pointer;
+    background: white;
+  }
+  .gallery-container img:hover,
+  .gallery-container img:focus {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 15px 30px var(--gold);
+    filter: brightness(1) saturate(1.3);
+    outline: none;
+  }
+  .gallery-container img[src$="G.jpg"],
+  .gallery-container img[src$="G.jpeg"] {
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(212,175,55,0.8);
+    filter: brightness(0.9) saturate(1.2);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    height: auto;
+    max-height: 180px;
+    width: 100%;
+    max-width: 180px;
+    object-fit: contain;
+    background: var(--blue);
+    padding: 10px;
+  }
+  .gallery-container img[src$="G.jpg"]:hover,
+  .gallery-container img[src$="G.jpeg"]:hover,
+  .gallery-container img[src$="G.jpg"]:focus,
+  .gallery-container img[src$="G.jpeg"]:focus {
+    transform: scale(1.1) rotate(1deg);
+    box-shadow: 0 15px 30px var(--gold);
+    filter: brightness(1) saturate(1.4);
+  }
+  #favorites ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    color: var(--text-light);
+  }
+  #favorites ul li {
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+  }
+  @media (max-width: 600px) {
+    nav ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .gallery-container {
+      justify-content: center;
+    }
+    .gallery-container img {
+      width: 140px;
+      height: 140px;
+    }
+  }
+  .abc-link {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    cursor: pointer;
+  }
+  .abc-link:hover {
+    color: var(--red);
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Google Developers Club - N.U. Manila</h1>
+    <nav>
+      <ul>
+        <li><a href="#welcome" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#memories">Memories</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#favorites">Favorites</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="welcome" class="section" tabindex="-1">
+      <h2>Welcome!</h2>
+      <p><strong>Name:</strong> Samantha Lui A. Santos</p>
+      <p><strong>Course:</strong> Bachelor of Science in Computer Science with specialization in Machine Learning</p>
+      <p><strong>Year:</strong> 1st Year</p>
+      <p><strong>Fun Fact:</strong> I love coding while listening to 
+        <a href="https://open.spotify.com/track/3WattXYKPa1N4sDqTvSrLS" target="_blank" rel="noopener noreferrer" class="abc-link">ABC</a>.
+      </p>
+    </section>
+    <section id="about" class="section" tabindex="-1">
+      <h2>About GDGOC NU Manila</h2>
+      <p>The Google Developers Club - N.U. Manila is a vibrant community of technology enthusiasts passionate about learning. They host talks, workshops, and projects to empower students and help each other to grow.</p>
+    </section>
+    <section id="memories" class="section" tabindex="-1">
+      <h2>My Memories</h2>
+      <p>Even though I am not yet a member of G.D.G.O.C., they are still welcome to us. Joining their webinars has been an amazing journey filled with learning.</p>
+      <blockquote>"The best way to predict the future is to create it, as they say."</blockquote>
+      <p>Funny (but not) moment: I once coded all night during a hands-on activity for the webinar and survived on just coffee and enthusiasm (seriously).</p>
+    </section>
+    <section id="gallery" class="section" tabindex="-1">
+      <h2>Photo Gallery</h2>
+      <div class="gallery-container">
+        <img src="L.jpg" alt="L Picture" />
+        <img src="W.jpg" alt="W Picture" />
+        <img src="G.jpg" alt="G Picture" />
+        <img src="R.jpg" alt="R Picture" />
+      </div>
+    </section>
+    <section id="favorites" class="section" tabindex="-1">
+      <h2>Favorites</h2>
+      <ul>
+        <li><strong>Favorite Speaker:</strong> Mr. Lark Simuond Babao</li>
+        <li><strong>Favorite Activity:</strong> CCITeach 1, 2, and 3</li>
+        <li><strong>What I Learned Most:</strong> The power of the speakers' words and continuous learning.</li>
+        <li><strong>Message to the Organization: </strong>I am not part of the Google Developers Club. But I have learned a lot from them. They do not waste time. They focus on skills, work, and results (innovation, rather). It is not for everyone. Only for those who want to grow and get better. I respect what they do and what they stand for.</li>
+      </ul>
+    </section>
+  </main>
+<script>
+  const sections = document.querySelectorAll('main section');
+  const navLinks = document.querySelectorAll('nav a');
+
+  function activateLinkOnScroll() {
+    let current = '';
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if(scrollY >= sectionTop) current = section.getAttribute('id');
+    });
+
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href').substring(1) === current);
+    });
+  }
+
+  window.addEventListener('scroll', activateLinkOnScroll);
+  window.addEventListener('load', activateLinkOnScroll);
+</script>
+</body>
+</html>
